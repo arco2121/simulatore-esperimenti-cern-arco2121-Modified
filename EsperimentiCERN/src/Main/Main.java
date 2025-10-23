@@ -34,7 +34,7 @@ public class Main {
             System.out.println(fine);
             System.out.println(fine.toString());
         }
-        boolean res2 = mappaScoperte.salvaSuFile("Lista.cern");
+        boolean res2 = archivio.salvaSuFile("Lista.cern");
         if(res2 == true)
         {
             ArchivioEsperimenti fine = ArchivioEsperimenti.caricaDaFile("Lista.cern");

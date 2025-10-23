@@ -99,7 +99,10 @@ public class ArchivioEsperimenti implements Serializable {
     {
         StringBuilder s = new StringBuilder();
         s.append("Archivio : \n");
-        s.append(this.esperimenti.toString());
+        for(Esperimento k : esperimenti)
+        {
+            s.append(k.descrizione());
+        }
         return s.toString();
     }
 }

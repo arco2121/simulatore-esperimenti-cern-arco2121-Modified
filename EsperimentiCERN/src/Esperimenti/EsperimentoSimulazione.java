@@ -2,7 +2,9 @@ package Esperimenti;
 
 import Exeptions.DatiEsperimentoNonValidiExeption;
 
-public class EsperimentoSimulazione extends Esperimento{
+import java.io.Serializable;
+
+public class EsperimentoSimulazione extends Esperimento implements Serializable {
     private final int annoSimulazione;
 
     public EsperimentoSimulazione(String name, double energia, int annoSimulazione) throws DatiEsperimentoNonValidiExeption

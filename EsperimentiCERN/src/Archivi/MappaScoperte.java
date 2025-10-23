@@ -84,8 +84,10 @@ public class MappaScoperte implements Serializable {
     {
         StringBuilder s = new StringBuilder();
         s.append("Mappa : \n");
-        System.out.println(map);
-        s.append(this.map);
+        for(Esperimento k : map.values())
+        {
+            s.append(k.descrizione());
+        }
         return s.toString();
     }
 }
