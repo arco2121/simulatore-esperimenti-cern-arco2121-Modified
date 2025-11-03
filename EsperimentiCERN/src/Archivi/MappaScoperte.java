@@ -40,12 +40,12 @@ public class MappaScoperte implements Serializable {
         }
     }
 
-    public Set<String> elencoChiavi(int energia)
+    public Set<String> elencoChiavi()
     {
         return this.map.keySet();
     }
 
-    public Collection<Esperimento> elencoEsperimenti(int energia)
+    public Collection<Esperimento> elencoEsperimenti()
     {
         return this.map.values();
     }

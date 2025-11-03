@@ -3,6 +3,7 @@ import Esperimenti.Esperimento;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -28,6 +29,11 @@ public class ArchivioEsperimenti implements Serializable {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public List<Esperimento> getValues()
+    {
+        return this.esperimenti.stream().toList();
     }
 
     public boolean rimuoviEsperimento(Esperimento esperimente)

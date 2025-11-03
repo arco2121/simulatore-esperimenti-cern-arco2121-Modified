@@ -1,6 +1,6 @@
 package Esperimenti;
 
-import Exeptions.DatiEsperimentoNonValidiExeption;
+import Exceptions.DatiEsperimentoNonValidiExeption;
 
 import java.io.Serializable;
 
@@ -15,6 +15,6 @@ public class EsperimentoCollisione extends Esperimento implements Serializable {
 
     public String descrizione()
     {
-        return (new StringBuilder().append("\n\nNome Esperimento : ").append(name).append("\nEnergia : ").append(energia).append(" TeV").append("\nNumero Collisioni : ").append(numeroCollisioni).append("\n\n")).toString();
+        return (new StringBuilder().append("\n\nNome Esperimento : ").append(name).append("\t  Energia : ").append(energia).append(" TeV").append("\t  Numero Collisioni : ").append(numeroCollisioni).append("\n\n")).toString();
     }
 }

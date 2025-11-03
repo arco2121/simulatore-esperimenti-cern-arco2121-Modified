@@ -1,5 +1,5 @@
 package Esperimenti;
-import Exeptions.*;
+import Exceptions.*;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -20,6 +20,12 @@ public abstract class Esperimento implements Serializable {
     public double energy() {
         return energia;
     }
+    public String nome() {return name;}
 
     abstract public String descrizione();
+
+    @Override
+    public String toString() {
+        return descrizione();
+    }
 }
