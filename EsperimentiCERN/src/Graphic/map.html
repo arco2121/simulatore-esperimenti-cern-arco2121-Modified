@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mappa CERN</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #map-container {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        #gmap_canvas {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        #info-panel {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            max-width: 300px;
+            z-index: 1000;
+        }
+
+        #info-panel h3 {
+            margin-top: 0;
+            color: #0066cc;
+        }
+
+        .location-btn {
+            background: #0066cc;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .location-btn:hover {
+            background: #0052a3;
+        }
+    </style>
+</head>
+<body>
+<div id="map-container">
+    <div id="info-panel">
+        <h3> CERN - Locations</h3>
+        <p id="current-location">CERN Main Site</p>
+        <div>
+            <button class="location-btn" onclick="changeLocation('cern')">CERN</button>
+            <button class="location-btn" onclick="changeLocation('lhc')">LHC</button>
+            <button class="location-btn" onclick="changeLocation('cms')">CMS</button>
+            <button class="location-btn" onclick="changeLocation('atlas')">ATLAS</button>
+        </div>
+    </div>
+
+    <iframe id="gmap_canvas"
+            src="https://maps.google.com/maps?q=CERN,+Geneva,+Switzerland&output=embed"
+            allowfullscreen>
+    </iframe>
+</div>
+
+<script>
+    const locations = {
+        cern: {
+            name: "CERN Main Site",
+            query: "CERN,+Geneva,+Switzerland",
+            description: "Centro principale del CERN"
+        },
+        lhc: {
+            name: "Large Hadron Collider (LHC)",
+            query: "CERN+LHC,+Geneva",
+            description: "Acceleratore di particelle più grande al mondo"
+        },
+        cms: {
+            name: "CMS Experiment",
+            query: "CMS+Experiment+CERN",
+            description: "Compact Muon Solenoid"
+        },
+        atlas: {
+            name: "ATLAS Experiment",
+            query: "ATLAS+Experiment+CERN",
+            description: "A Toroidal LHC ApparatuS"
+        }
+    };
+    function changeLocation(locationKey) {
+        const location = locations[locationKey];
+        if (location) {
+            const iframe = document.getElementById('gmap_canvas');
+            iframe.src = `https://maps.google.com/maps?q=${location.query}&output=embed`;
+
+            document.getElementById('current-location').textContent =
+                location.name + " - " + location.description;
+            if (window.javaBridge) {
+                window.javaBridge.onLocationChanged(locationKey, location.name);
+            }
+        }
+    }
+
+    function setLocationFromJava(locationKey) {
+        changeLocation(locationKey);
+    }
+
+    function updateExperimentInfo(experimentName, status) {
+        console.log("Experiment updated:", experimentName, status);
+    }
+    window.addEventListener('load', function() {
+        if (window.javaBridge) {
+            window.javaBridge.onMapReady();
+        }
+    });
+</script>
+</body>
+</html>

@@ -4,7 +4,7 @@ import Archivi.ArchivioEsperimenti;
 import Archivi.MappaScoperte;
 import Esperimenti.*;
 import Exceptions.DatiEsperimentoNonValidiExeption;
-import Graphic.SimulatoreEsperimenti;
+import Graphic.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -60,7 +60,7 @@ public class Main {
         System.out.print(archivio);
         MappaScoperte preferiti = new MappaScoperte();
         SwingUtilities.invokeLater(() ->
-                new SimulatoreEsperimenti(archivio, preferiti).setVisible(true)
+                new SimulatoreEsperimentiForm(archivio, preferiti).setVisible(true)
         );
     }
     public static void main(String[] args) throws DatiEsperimentoNonValidiExeption

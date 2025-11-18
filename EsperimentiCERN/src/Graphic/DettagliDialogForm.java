@@ -5,14 +5,14 @@ import Exceptions.*;
 import javax.swing.*;
 import java.awt.*;
 
-public class DettagliDialog extends JDialog {
+public class DettagliDialogForm extends JDialog {
 
     private Esperimento esperimento;
     private JTextField txtNome;
     private JTextField txtEnergia;
     private JTextField txtParticella;
 
-    public DettagliDialog(JFrame parent, Esperimento esperimento) {
+    public DettagliDialogForm(JFrame parent, Esperimento esperimento) {
         super(parent, "Dettagli Esperimento", true);
         this.esperimento = esperimento;
 

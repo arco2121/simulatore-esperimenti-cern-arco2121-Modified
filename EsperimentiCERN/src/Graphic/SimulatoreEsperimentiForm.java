@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 
-public class SimulatoreEsperimenti extends JFrame {
+public class SimulatoreEsperimentiForm extends JFrame {
 
     private ArchivioEsperimenti archivio;
     private MappaScoperte preferiti;
@@ -18,7 +18,7 @@ public class SimulatoreEsperimenti extends JFrame {
     private JList<Esperimento> listaArchivio;
     private JList<String> listaPreferiti;
 
-    public SimulatoreEsperimenti(ArchivioEsperimenti archivio, MappaScoperte preferiti) {
+    public SimulatoreEsperimentiForm(ArchivioEsperimenti archivio, MappaScoperte preferiti) {
         this.archivio = archivio;
         this.preferiti = preferiti;
 
@@ -88,7 +88,7 @@ public class SimulatoreEsperimenti extends JFrame {
         Esperimento e = listaArchivio.getSelectedValue();
         if (e == null) return;
 
-        new DettagliDialog(this, e).setVisible(true);
+        new DettagliDialogForm(this, e).setVisible(true);
         listaArchivio.repaint();  // aggiorna la visuale
     }
 
@@ -99,7 +99,7 @@ public class SimulatoreEsperimenti extends JFrame {
                 .filter(exp -> exp.descrizione().contains(chiave))
                 .findFirst().orElse(null);
         if (e != null)
-            new DettagliDialog(this, e).setVisible(true);
+            new DettagliDialogForm(this, e).setVisible(true);
     }
 
     private void aggiungiPreferito() {
