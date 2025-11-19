@@ -40,7 +40,7 @@ public class MapController {
 
     private void loadMapHTML() {
         try {
-            URL htmlUrl = getClass().getResource("/html/map.html");
+            URL htmlUrl = getClass().getResource("/Graphic/map.html");
             if (htmlUrl != null) {
                 webEngine.load(htmlUrl.toExternalForm());
                 System.out.println("📄 Caricamento mappa da: " + htmlUrl);

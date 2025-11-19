@@ -1,6 +1,5 @@
 package Logic;
 
-import netscape.javascript.JSObject;
 import javafx.application.*;
 
 public class Bridge {
